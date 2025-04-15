@@ -1,0 +1,58 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct student {
+    int nationalcode;
+    string fathername;
+    string firstname;
+    string lastname;
+    string address;
+};
+
+int main() {
+    student st[100];  // برای ذخیره اطلاعات دانش‌آموزان یک آرایه از نوع student تعریف می‌کنیم.
+    int number;
+
+    cout << "Please enter number of students: ";
+    cin >> number;
+
+    // وارد کردن اطلاعات برای هر دانش‌آموز
+    for (int i = 0; i < number; i++) {
+        cout << "Please enter national code: ";
+        cin >> st[i].nationalcode;
+        cout << "Please enter first name: ";
+        cin >> st[i].firstname;
+        cout << "Please enter last name: ";
+        cin >> st[i].lastname;
+        cout << "Please enter address: ";
+        cin >> st[i].address;
+        cout << "Please enter father's name: ";
+        cin >> st[i].fathername;
+    }
+
+    // جستجو برای کد ملی
+    int searchCode;
+    cout << "Please enter national code to search for: ";
+    cin >> searchCode;
+
+    bool found = false;
+    for (int i = 0; i < number; i++) {
+        if (st[i].nationalcode == searchCode) {
+            cout << "Student found!" << endl;
+            cout << "National Code: " << st[i].nationalcode << endl;
+            cout << "First Name: " << st[i].firstname << endl;
+            cout << "Last Name: " << st[i].lastname << endl;
+            cout << "Address: " << st[i].address << endl;
+            cout << "Father's Name: " << st[i].fathername << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "No student found with this national code." << endl;
+    }
+
+    return 0;
+}
